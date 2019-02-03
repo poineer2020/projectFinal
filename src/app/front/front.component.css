@@ -1,0 +1,30 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.card{
+  height: 250pt;
+  width: 240pt;
+  display: flex;
+  margin: 20pt;
+  float: left;
+  padding:30px;
+}
+.card-img-top{
+  height: 220px;
+  width: 200pt;
+}
+.card-img-top1{
+  height: 200px;
+  width: 200px;
+
+}
+.card-body{
+  height: 25px;
+  width: 250px;
+}
+
