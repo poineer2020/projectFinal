@@ -55,6 +55,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', Token);
           var decoded = jwt_decode(Token)
           console.log(Token);
+          
+          localStorage.setItem('token', Token);
+
           this.router.navigate(['\intimate'])
         }
         else{

@@ -34,6 +34,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { BrasComponent } from './graph/bras/bras.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SubmitComponent } from './submit/submit.component';
+import { ManagereditProfileComponent } from './manageredit-profile/manageredit-profile.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -57,8 +61,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrasComponent,
   
     LogoutComponent,
+  
+    SubmitComponent,
+  
+    ManagereditProfileComponent,
+  
+    SettingsComponent,
    
   ],
+  entryComponents: [
+    ManagereditProfileComponent,
+    SettingsComponent,
+  ],
+
+
+
+
+
+
+
+
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -68,6 +90,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
+    MatDialogModule
   ],
   providers: [
     RegisterService,
@@ -79,5 +103,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // ProfileEditService
   ],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
