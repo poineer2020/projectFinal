@@ -56,38 +56,37 @@ export class LoginComponent implements OnInit {
      this.authService.loginUser(user).subscribe(
       res=>{
         const data = res.json().data[0]._id;
-        console.log(data)
+        // console.log(res)
 
-        if(res.json().JWT_Token){
+        if(res.json().JWT_Token){ 
+          if(this.selectedUser=='QC'){
+            this.router.navigate(['intimate']);
+          }
+          else{
+            this.router.navigate(['graph']);
+      
+          }
+          console.log('loging')
           console.log(res.json().JWT_Token)
           var Token = res.json().JWT_Token;
           localStorage.setItem('token',Token)
           localStorage.setItem('uid', data);
           var decoded = jwt_decode(Token)
-          console.log(Token);
-          console.log(res)
-          // if(res.json().)
-          // this.router.navigate(['\intimate'])
+          console.log(res.json().state);
+          // console.log(res)
           
-          // localStorage.setItem('uid', data)
           
         }
         else{
           this.form.reset(); 
-          this.logInvalid = true;
+          this.logInvalid = true;this.router.navigate(['intimate']);
         }
       },
       err=>{console.log('err')
         throw err;
       }
     )
-    if(this.selectedUser=='QC'){
-      this.router.navigate(['intimate']);
-    }
-    else{
-      this.router.navigate(['graph']);
-
-    }
+    
 
   }
 

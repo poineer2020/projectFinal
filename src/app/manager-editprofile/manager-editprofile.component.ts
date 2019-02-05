@@ -13,26 +13,26 @@ export class ManagerEditprofileComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      // rawid: ['', Validators.required],
-    });
-  }
-  get f() { 
-    return this.registerForm.controls; 
-  }
-  onSubmit() {
-    this.submitted = true;
-    if (this.registerForm.invalid) {
-      return;
+  //   this.registerForm = this.formBuilder.group({
+  //     firstname: ['', Validators.required],
+  //     lastname: ['', Validators.required],
+  //     email: ['', [Validators.required, Validators.email]],
+  //     // rawid: ['', Validators.required],
+  //   });
+  // }
+  // get f() { 
+  //   return this.registerForm.controls; 
+  // }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   if (this.registerForm.invalid) {
+  //     return;
+  //   }
+
+  //     alert('SUCCESS!! :-)')
+  //   }
     }
 
-      alert('SUCCESS!! :-)')
-    }
-    }
-
-  
+  }
 
 

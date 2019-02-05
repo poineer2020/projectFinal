@@ -35,10 +35,10 @@ export class CreateNewComponent implements OnInit {
     console.log(pos_y);
     const x = pos_x;
     const y = pos_y;
-    if (0 <= x && x <= 82 && 0 <= y && y <= 76) {
+    if (10<= x && x <= 500 && 6 <= y && y <= 300) {
       if (this.type === 'blue') {
         const index_blue = this.multiArray.findIndex(res => {
-          return res.x === 41 && res.y === 38 && res.type === 'blue';
+          return res.x ===85 && res.y === 60 && res.type === 'blue';
         });
 
         if (index_blue > -1) {
@@ -46,12 +46,12 @@ export class CreateNewComponent implements OnInit {
           this.multiArray[index_blue].count = abc;
           this.forLoopForCoodinates(this.multiArray);
         } else {
-          this.multiArray.push({ x: 41, y: 38, count: 1, type: 'blue', month: month });
+          this.multiArray.push({ x: 150, y: 150, count: 1, type: 'blue', month: month });
           this.forLoopForCoodinates(this.multiArray);
         }
       } else if (this.type === 'green') {
         const index_greem = this.multiArray.findIndex(res => {
-          return res.x === 41 && res.y === 38 && res.type === 'green';
+          return res.x === 200&& res.y === 100 && res.type === 'green';
         });
 
         if (index_greem > -1) {
