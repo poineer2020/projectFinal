@@ -1,3 +1,4 @@
+import { from } from 'rxjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -28,12 +29,34 @@ import { AuthGaurd } from './services/auth-gaurd.service';
 // import { ProfileEditService } from './profile-edit-tutor/profile-edit.service';
 import { IntimateComponent } from './intimate/intimate.component';
 import { GraphComponent } from './graph/graph.component';
-import { BackComponent } from './back/back.component';
+
 import { FrontComponent } from './front/front.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrasComponent } from './graph/bras/bras.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { QclistComponent } from './qclist/qclist.component';
+import { ChartComponent } from './chart/chart.component';
+
+// Import angular-fusioncharts
+import { FusionChartsModule } from 'angular-fusioncharts';
+
+// Import FusionCharts library
+import * as FusionCharts from 'fusioncharts';
+
+// Load FusionCharts Individual Charts
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+import { IntimateListComponent } from './intimate-list/intimate-list.component';
+import { IntimateViewComponent } from './intimate-view/intimate-view.component';
+import { CreateNewComponent } from './create-new/create-new.component';
+import { SubmitComponent } from './submit/submit.component';
+import { ManagerEditprofileComponent } from './manager-editprofile/manager-editprofile.component';
+// import { CreateNewComponent } from './create-new/create-new.component';
+
+// Use fcRoot function to inject FusionCharts library, and the modules you want to use
+FusionChartsModule.fcRoot(FusionCharts, Charts)
 
 @NgModule({
   declarations: [
@@ -51,12 +74,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // TutorCardComponent,
     IntimateComponent,
     GraphComponent,
-    BackComponent,
+ 
     FrontComponent,
   
     BrasComponent,
   
     LogoutComponent,
+  
+    EditProfileComponent,
+  
+    QclistComponent,
+  
+    ChartComponent,
+  
+    IntimateListComponent,
+  
+    IntimateViewComponent,
+  
+    CreateNewComponent,
+  
+    SubmitComponent,
+    ManagerEditprofileComponent,
+  
    
   ],
   imports: [
@@ -68,7 +107,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatDialogModule,
+    FusionChartsModule // Include in imports
+
   ],
+  entryComponents:[
+    EditProfileComponent,
+    ],
+    
   providers: [
     RegisterService,
     AuthService,

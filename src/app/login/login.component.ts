@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -15,16 +15,23 @@ export class LoginComponent implements OnInit {
   logInvalid = false;
   selectedUser:string;
 
-  constructor(
-    private router: Router, 
-    private authService: AuthService,
-    fb: FormBuilder) {
+
+
+
+  constructor( private router: Router, private authService: AuthService,  fb: FormBuilder) {
+    {
     this.form = fb.group({
-      email: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
       password: ['', Validators.required],
       role: ['', Validators.required]
     })
   }
+  }
+//   model={
+//  email:'',
+//     password:''
+//   };
+//   emailRegex=/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   ngOnInit() {
     //this.authService.logOut();
@@ -46,23 +53,31 @@ export class LoginComponent implements OnInit {
   onSubmit(loginForm){
     let user = loginForm.value;
   //  console.log(user)
-    this.authService.loginUser(user).subscribe(
+     this.authService.loginUser(user).subscribe(
       res=>{
-        console.log(res)
+        const data = res.json().data[0]._id;
+        console.log(data)
+
         if(res.json().JWT_Token){
           console.log(res.json().JWT_Token)
           var Token = res.json().JWT_Token;
-          localStorage.setItem('token', Token);
+          localStorage.setItem('token',Token)
+          localStorage.setItem('uid', data);
           var decoded = jwt_decode(Token)
           console.log(Token);
-          this.router.navigate(['\intimate'])
+          console.log(res)
+          // if(res.json().)
+          // this.router.navigate(['\intimate'])
+          
+          // localStorage.setItem('uid', data)
+          
         }
         else{
           this.form.reset(); 
           this.logInvalid = true;
         }
       },
-      err=>{
+      err=>{console.log('err')
         throw err;
       }
     )
@@ -92,3 +107,4 @@ export class LoginComponent implements OnInit {
     this.textBoxDisabled = true;
   }
 }
+

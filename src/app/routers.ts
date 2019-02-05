@@ -1,5 +1,10 @@
+import { SubmitComponent } from './submit/submit.component';
+import { CreateNewComponent } from './create-new/create-new.component';
+import { IntimateListComponent } from './intimate-list/intimate-list.component';
+import { IntimateViewComponent } from './intimate-view/intimate-view.component';
+import { QclistComponent } from './qclist/qclist.component';
 import { LogoutComponent } from './logout/logout.component';
-import { BackComponent } from './back/back.component';
+
 import { BrasComponent } from './graph/bras/bras.component';
 
 import { FrontComponent } from './front/front.component';
@@ -18,6 +23,7 @@ import { TutorAuthGuard } from './services/tutor-auth-guard.service';
 
 import { from } from 'rxjs';
 import { IntimateComponent } from './intimate/intimate.component';
+import { ChartComponent } from './chart/chart.component';
 
 export const appRoutes: Routes = [
       {
@@ -39,17 +45,18 @@ export const appRoutes: Routes = [
             component:IntimateComponent,
           },
          
-    
+          {
+            path: 'chart/:id',
+            component: ChartComponent,
+          },
+
           {
             path:"\graph",
             component:GraphComponent,
            
             
           },
-          {
-            path:"\back",
-        component:BackComponent,
-      },
+         
         {
           path:"\front",
           component:FrontComponent,
@@ -57,7 +64,28 @@ export const appRoutes: Routes = [
       {
           path:"\logout",
           component:LogoutComponent,
+      },
+      {
+        path: 'qlist',
+        component: QclistComponent
+      }, 
+      {
+        path: 'intimate-list',
+        component: IntimateListComponent
+      },
+      {
+        path: 'intimate-view/:id',
+        component: IntimateViewComponent
+      }, 
+      {
+        path: 'create-new',
+        component: CreateNewComponent
+      }, 
+      {
+        path: 'submit',
+        component: SubmitComponent
       }
+    
 
         
       

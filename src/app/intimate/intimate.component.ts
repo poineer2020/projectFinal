@@ -1,9 +1,12 @@
+import { EditProfileComponent } from './../edit-profile/edit-profile.component';
 import { Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { Http } from '@angular/http';
 import { IntimateService } from '../services/intimate.service';
 import { NgIf } from '@angular/common';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+
 @Component({
   selector: 'app-intimate',
   templateUrl: `./intimate.component.html`,
@@ -22,7 +25,8 @@ export class IntimateComponent implements OnInit {
   constructor(
     private http: Http,
     private Intimates: IntimateService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {
     this.count = 0;
     for (var i = 0; i < 10; i++) {
@@ -88,9 +92,7 @@ export class IntimateComponent implements OnInit {
   }
 
 
-  public onClick() {
-    this.router.navigate(['\back']);
-  }
+  
   public onClickEvent() {
     this.router.navigate(['\front']);
 
@@ -102,4 +104,15 @@ export class IntimateComponent implements OnInit {
 
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(EditProfileComponent, {
+      height:'720px',
+      width: '800px',
+      // data: event
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+
+  }
 }

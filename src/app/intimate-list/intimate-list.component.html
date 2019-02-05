@@ -1,0 +1,9 @@
+<div *ngFor = "let alert of alertmessages"> 
+  <p>{{alert.reason}}</p>
+  <p>{{alert.createdDate | date:format}}</p>
+  <button (click) = "deleteAlert(alert)"  >Delete</button>
+</div>
+<button (click) = "createNew()" >Create new Object</button>
+<div *ngFor = "let task of tasks" >
+  <button (click)= "objectClick(task)" >{{task._id}}</button> <br>
+</div>

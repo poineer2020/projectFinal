@@ -1,0 +1,27 @@
+<!-- in app.component.html -->
+<label for="reason">Message</label>
+<input type="text" [(ngModel)] = "reason">
+<button type="reset" (click) = "sendAlert()" >Sent Alert</button>
+<div>
+    File: <input type="file" name="imageUrl" (change)="onFileChanged($event)">
+    <button (click)= "onUpload()" >Upload</button>
+</div>
+<div>
+    <fusioncharts
+    [chartConfig]=chartConfig
+    [dataSource]=dataSource >
+</fusioncharts>
+
+<fusioncharts
+    [chartConfig]=chartConfig_red
+    [dataSource]=dataSource_red >
+</fusioncharts>
+<fusioncharts
+    [chartConfig]=chartConfig_green
+    [dataSource]=dataSource_green >
+</fusioncharts>
+<fusioncharts
+    [chartConfig]=chartConfig_blue
+    [dataSource]=dataSource_blue >
+</fusioncharts>
+</div>

@@ -1,0 +1,13 @@
+<div id="pointer_div" (click)="point_it($event)" style="background-repeat: no-repeat; width: 900px; height: 262px;"
+[ngStyle]="{'background-image':'url('+image+')'}">
+</div>
+
+
+<button (click) = "saveCoorfinates()" >saveCoorfinates</button>
+
+<input type="radio" (change)= "colorClick($event)" name="options" value="red" />
+<span>Red</span>
+<input type="radio" (change)= "colorClick($event)" name="options" value="blue" />
+<span>Blue</span>
+<input type="radio" (change)= "colorClick($event)" name="options" value="green" />
+<span>Green</span>

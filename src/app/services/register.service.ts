@@ -13,4 +13,9 @@ export class RegisterService {
     return this.http.post("http://localhost:3000/user/register", user);
   }
 
+  editUser(id){
+    console.log(id)
+    return this.http.get("http://localhost:3000/user/"+id);
+  }
+
 }

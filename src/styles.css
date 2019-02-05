@@ -1,3 +1,43 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+#map-point-blue {
+    color: blue;
+    position: absolute;
+  }
+  #map-point-green {
+    color: green;
+    position: absolute;
+  }
+  #map-point-red {
+    color: red;
+    position: absolute;
+  }
+  
+  #container-1 {
+    width: 50% !important;
+    height: 75% !important;
+    float: right;
+    margin: 10px;
+  }
+  
+  #container-2 {
+    width: 50% !important;
+    height: 75% !important;
+    /* float: right; */
+    margin: 5px;
+  }
+  
+  #container-3 {
+    width: 50% !important;
+    height: 75% !important;
+    float: right;
+    margin: 10px;
+  }
+  #container-4 {
+    width: 50% !important;
+    height: 75% !important;
+    margin: 10px;
+    /* float: right; */
+  }
